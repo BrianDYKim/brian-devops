@@ -12,12 +12,14 @@ services:
       - 3000:3000
 
   redis:
-    image: "bitnami/redis:latest"
+    container_name: redis
+    image: redis:6.2.3
+    command: redis-server /etc/redis.conf
+    volumes:
+      - ./redis.conf:/etc/redis.conf
+    restart: always
     ports:
       - 6379:6379
-    environment:
-      - REDIS_REPLICATION_MODE=master
-      - ALLOW_EMPTY_PASSWORD=yes
 
   prometheus:
     image: prom/prometheus
