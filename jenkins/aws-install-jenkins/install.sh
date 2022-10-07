@@ -23,3 +23,8 @@ sudo systemctl enable jenkins
 
 # 7. Start Jenkins as a service
 sudo systemctl start jenkins
+
+# 8. install docker
+sudo yum install docker
+
+sudo usermod -aG docker ec2-user
