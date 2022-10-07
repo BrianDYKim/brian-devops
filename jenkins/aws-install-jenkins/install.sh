@@ -25,6 +25,17 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 
 # 8. install docker
-sudo yum install docker
+sudo yum install docker -y
 
 sudo usermod -aG docker ec2-user
+
+# 9. Enable the docker service to start at boot
+sudo systemctl enable docker
+
+sudo systemctl start docker
+
+# 10. Assigning the permission to docker
+sudo usermod -aG docker ec2-user
+
+# 11. Assigning the permission to jenkins to communicate with docker daemon
+sudo usermod -aG docker jenkins
